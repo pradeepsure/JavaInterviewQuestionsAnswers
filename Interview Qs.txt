@@ -1,0 +1,183 @@
+﻿concurrenthashmap working in java
+
+
+data hiding in java
+===================
+Data hiding is also known as data encapsulation or information hiding.
+Encapsulation in Java is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit. 
+In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the 
+methods of their current class. Therefore, it is also known as data hiding.
+
+Declare the variables of a class as private.
+
+Provide public setter and getter methods to modify and view the variables values.
+
+
+
+
+Try-with-resources
+==================
+The Java try with resources construct, AKA Java try-with-resources, is an exception handling mechanism 
+that makes it possible to automatically close resources like an InputStream or a JDBC Connection when you are done with them. 
+To do so, you must open and use the resource within a Java try-with-resources block. 
+When the execution leaves the try-with-resources block, any resource opened within the try-with-resources block is automatically closed, 
+regardless of whether any exceptions are thrown either from inside the try-with-resources block, or when attempting to close the resources.
+
+private static void printFile() throws IOException {
+
+    try(FileInputStream input = new FileInputStream("file.txt")) {
+
+        int data = input.read();
+        while(data != -1){
+            System.out.print((char) data);
+            data = input.read();
+        }
+    }
+}
+
+This is possible because FileInputStream implements the Java interface java.lang.AutoCloseable. 
+All classes implementing this interface can be used inside the try-with-resources construct.
+
+
+
+	
+
+ng-if ng-show
+=============
+ng-show (and its sibling ng-hide ) toggle the appearance of the element by adding the CSS display: none style. 
+ng-if , on the other hand, actually removes the element from the DOM when the condition is false and only adds the element back once the condition turns true
+
+
+element and attribute in html
+==============================
+HTML attributes. An attribute defines a property for an element, consists of an attribute/value pair, and appears within the element's start tag. 
+An element's start tag may contain any number of space separated attribute/value pairs.
+An element in HTML represents some kind of structure or semantics and generally consists of a start tag, content, and an end tag. 
+The following is a paragraph element:
+
+<p>
+This is the content of the paragraph element.
+</p>
+
+<p class="info">
+A start tag with an attribute:
+
+volatile
+=========
+The Java volatile keyword guarantees visibility of changes to variables across threads
+With non-volatile variables there are no guarantees about when the Java Virtual Machine (JVM) 
+reads data from main memory into CPU caches, or writes data from CPU caches to main memory.
+The Java volatile keyword is intended to address variable visibility problems. 
+By declaring the counter variable volatile all writes to the counter variable will be written back to main memory immediately. 
+Also, all reads of the counter variable will be read directly from main memory.
+
+
+
+
+The join() method 
+=================
+waits for a thread to die. In other words, it causes the currently running threads to stop executing until the thread it joins with completes its task.
+
+yield and sleep
+==============
+thread which has yielded may become eligible to run again as soon as it has yielded if there is no other thread with the same or more thread priority.
+
+Where as in case of sleep() the thread will definitely go to sleep for the specified time (unless it is interrupted) and in the meantime another thread (of less or more priority) can start its execution.
+
+wait() method
+==============
+Causes current thread to release the lock and wait until either another thread invokes the notify()
+method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+
+notify() method
+=================
+Wakes up a single thread that is waiting on this object's monitor. 
+If any threads are waiting on this object, one of them is chosen to be awakened. 
+
+notifyAll() method
+==================
+Wakes up all threads that are waiting on this object's monitor.
+
+wait()									sleep()
+===================================================
+wait() method releases the lock			sleep() method doesn't release the lock.
+Is the method of Object class			Is the method of Thread class
+should be notified by notify() or 		after the specified amount of time, sleep is completed.
+notifyAll() methods	
+
+why static cannot be override
+===============================
+The point of polymorphism is that you can subclass a class and the objects implementing those subclasses 
+will have different behaviors for the same methods defined in the superclass (and overridden in the subclasses). 
+A static method is not associated with any instance of a class so the concept is not applicable
+
+abstract and interface
+======================
+Abstract class can have abstract and non-abstract methods.	Interface can have only abstract methods. Since Java 8, it can have default and static methods also.
+Abstract class doesn't support multiple inheritance.	Interface supports multiple inheritance.
+
+thread and runnable differene
+=============================
+Each thread created by extending the Thread class creates a unique object for it and get associated with that object. 
+On the other hand, each thread created by implementing a Runnable interface share the same runnable instance.
+
+As each thread is associated with a unique object when created by extending Thread class, more memory is required. 
+On the other hand, each thread created by implementing Runnable interface shares same object space hence, it requires less memory.
+
+One must extend a Thread class only if it has to override or specialise some other methods of Thread class. 
+You must implement a Runnable interface if you only want to specialise run method only.
+
+
+
+Daemon thread 
+==================
+in java is a service provider thread that provides services to the user thread. 
+Its life depend on the mercy of user threads i.e. when all the user threads dies, JVM terminates this thread automatically.
+There are many java daemon threads running automatically e.g. gc, finalizer etc.
+
+Main method is not daemon, we cannot make it because it is the stating point and u need to set before main methods starts.
+
+
+
+Iterators in collection
+======================
+Enumeration :
+=============
+It is a interface used to get elements of legacy collections(Vector, Hashtable). 
+Enumeration e = v.elements();   
+        while (e.hasMoreElements()) 
+        { 
+            int i = (Integer)e.nextElement(); 
+
+Limitations of Enumeration :
+
+Enumeration is for legacy classes(Vector, Hashtable) only. Hence it is not a universal iterator.
+Remove operations can’t be performed using Enumeration.
+Only forward direction iterating is possible.
+
+
+Iterator:
+===========
+It is a universal iterator as we can apply it to any Collection object. By using Iterator, we can perform both read and remove operations. 
+Iterator itr = c.iterator();
+public boolean hasNext();
+public Object next();
+public void remove();
+
+Only forward direction iterating is possible.
+Replacement and addition of new element is not supported by Iterator.
+
+ListIterator:
+==============
+It is only applicable for List collection implemented classes like arraylist, linkedlist etc. It provides bi-directional iteration.
+ListIterator must be used when we want to enumerate elements of List. This cursor has more functionality(methods) than iterator.
+ListIterator ltr = l.listIterator();
+public boolean hasNext();
+public Object next();
+public boolean hasPrevious();
+public Object previous();
+public void remove(); 
+public void set(Object obj);
+public void add(Object obj);
+			
+

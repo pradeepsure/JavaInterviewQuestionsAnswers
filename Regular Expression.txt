@@ -1,0 +1,86 @@
+to implement validation logic.
+
+Pattern Class
+==============
+A Pattern object represents "compiled version of Regular Expression"
+
+Matcher Class
+===========
+Used to match character sequence against a Regular Expression
+
+Patter p = Pattern.compile("ab");
+Matcher m = p.matcher("abbbabbbab");
+wile(m.find())
+{
+count++
+}
+
+
+Character Class
+===============
+[abc] either a,b,c
+[^abc] except a,b,c
+[a-z] a to z lower
+[A-Z]
+[a-zA-Z]
+[0-9]
+[a-zA-Z0-9]
+[^a-zA-Z0-9] Any special character
+
+\\s  space character
+\d	any digit from 0-9
+\w	any word character from[a-zA-Z0-9]
+\.	any character including special character
+\S	any character except space
+\D  except digit
+\W  any character except word character(special character)
+
+
+.	Any character (may or may not match terminator)
+\d	Any digits, short of [0-9]
+\D	Any non-digit, short for [^0-9]
+\s	Any whitespace character, short for [\t\n\x0B\f\r]
+\S	Any non-whitespace character, short for [^\s]
+\w	Any word character, short for [a-zA-Z_0-9]
+\W	Any non-word character, short for [^\w]
+\b	A word boundary
+\B	A non word boundary
+
+
+
+Quantifiers  -->used to specify no of characters
+===========
+a	Exactly one 'a'
+a+	At least one 'a'
+a*  Any no of 'a' including zero
+a?	At most 1 'a'
+
+
+X?	X occurs once or not at all
+X+	X occurs once or more times
+X*	X occurs zero or more times
+X{n}	X occurs n times only
+X{n,}	X occurs n or more times
+X{y,z}	X occurs at least y times but less than z times
+
+
+Pattern Class Split method
+================
+Patter p = Pattern.compile("\\s");
+String[] s = p.split("My Name is Bibun")
+
+
+StringTokenizer
+==============
+StringTokenizer st = new StringTokenizer("My Name is Bibun");
+	while(st.hasMoreTokens())
+	{
+		System.out.println(st.nextToken());
+	}
+	
+	Default is space
+	
+	StringTokenizer st = new StringTokenizer("My,Name,is,Bibun",",");
+	
+	
+	

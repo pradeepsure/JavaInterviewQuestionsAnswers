@@ -1,0 +1,22 @@
+Generics
+=========
+objective is to provide type safety to the collections
+to resolve type casting problems
+
+ArrayList<String> al =new ArrayList<String>();
+al.add("Bibun");
+al.add(10);  CE
+
+At the time of retrieval no need of typecasting 
+String name = al.get(0);
+
+Collections concept only applicable for objects, hence the parameter type we can use any class/interface but not primitive value(type) else CE
+ArrayList<int> al = new ArrayList<int>();
+
+Generics Classes
+=================
+class ArrayList<T>
+{
+T is type of parameter
+}
+

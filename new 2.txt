@@ -1,0 +1,191 @@
+Duplicates
+============
+public class HelloWorld{
+
+     public static void main(String []args){
+String[] strArray = {"Java", "JSP", "Servlets", "Java", "Struts", "JSP", "JDBC"};
+
+         for (int i = 0; i < strArray.length-1; i++)
+        {
+            for (int j = i+1; j < strArray.length; j++)
+            {
+                if( (strArray[i].equals(strArray[j])) && (i != j) )
+                {
+                    System.out.println("Duplicate Element is : "+strArray[j]);
+                }
+            }
+        }
+     }
+}
+
+ public static void main(String[] args) 
+    {
+        String[] strArray = {"Java", "JSP", "Servlets", "Java", "Struts", "JSP", "JDBC"};
+ 
+        HashSet<String> set = new HashSet<String>();
+ 
+        for (String arrayElement : strArray)
+        {
+            if(!set.add(arrayElement))
+            {
+                System.out.println("Duplicate Element is : "+arrayElement);
+            }
+        }
+    }
+	
+2nd Largest
+===========
+public static void main(String []args){
+int arr[] = { 14, 46, 47, 86, 92, 52, 48, 36, 66, 85 };
+
+int largest = arr[0];
+		int secondLargest = arr[0];
+		for (int i = 0; i < arr.length; i++) {
+ 
+			if (arr[i] > largest) {
+				secondLargest = largest;
+				largest = arr[i];
+ 
+			} else if (arr[i] > secondLargest) {
+				secondLargest = arr[i];
+ 
+			}
+		}
+		System.out.println("\nSecond largest number is:" + secondLargest);
+     }
+
+
+2 Arrays equal or not
+=====================
+public static void main(String[] args)
+    {    
+        int[] arrayOne = {21, 57, 11, 37, 24};
+         
+        int[] arrayTwo = {21, 57, 11, 37, 24};
+         
+        boolean equalOrNot = true;
+         
+        if(arrayOne.length == arrayTwo.length)
+        {
+            for (int i = 0; i < arrayOne.length; i++)
+            {
+                if(arrayOne[i] != arrayTwo[i])
+                {
+                    equalOrNot = false;
+                }
+            }
+        }
+        else
+        {
+            equalOrNot = false;
+        }
+
+
+or
+===
+ boolean equalOrNot = Arrays.equals(arrayOne, arrayTwo);
+
+
+
+SUm of 2 no is some no
+====================
+ int int[] = {4, 6, 5, -10, 8, 5, 20};
+
+ for (int i = 0; i < inputArray.length; i++)
+        {
+            for (int j = i+1; j < inputArray.length; j++)
+            {
+                if(inputArray[i]+inputArray[j] == inputNumber)
+                {
+                    System.out.println(inputArray[i]+" + "+inputArray[j]+" = "+inputNumber);
+                }
+            }
+        }
+
+		
+		
+RetainAll Method
+================		
+String[] inputArray1 = {"ONE", "TWO", "THREE", "FOUR", "FIVE", "FOUR"};
+ 
+        String[] inputArray2 = {"THREE", "FOUR", "FIVE", "SIX", "SEVEN", "FOUR"};
+ 
+        HashSet<String> set1 = new HashSet<String>(Arrays.asList(inputArray1));
+        
+        HashSet<String> set2 = new HashSet<String>(Arrays.asList(inputArray2));
+ 
+        set1.retainAll(set2);
+		
+		
+Count of duplicates
+===================
+public static void main(String []args){
+int numbers[] = {4, 5, 4, 5, 4, 6};
+ HashMap<Integer, Integer> elementCountMap = new HashMap<Integer, Integer>();
+ for (int i : numbers) 
+        {
+            if(elementCountMap.containsKey(i))
+            {
+                elementCountMap.put(i, elementCountMap.get(i)+1);
+            }
+            else
+            {
+                elementCountMap.put(i, 1);
+            }
+        }
+
+		System.out.println(elementCountMap);
+     }
+	 
+reverse an array without using an additional array?
+=================================
+int numbers[] = {1, 3, 5, 6, 8, 9};
+ int temp;
+         
+        for (int i = 0; i < numbers.length/2; i++) 
+        {
+            temp = numbers[i];
+             
+            numbers[i] = numbers[numbers.length-1-i];
+             
+            numbers[numbers.length-1-i] = temp;
+            
+        }
+        System.out.println("Array After Reverse : "+Arrays.toString(numbers));
+
+		
+		
+		
+2 string equality after sorting
+==============================
+public static void main(String []args){
+String s1 = "BEEP";
+String s2 = "PEBO";
+Boolean status = true;
+if(s1.length() == s2.length()){
+    
+ char tempArray1[] = s1.toCharArray(); 
+ char tempArray2[] = s2.toCharArray(); 
+ Arrays.sort(tempArray1); 
+ Arrays.sort(tempArray2); 
+for(int i=0; i<tempArray1.length; i++)
+{
+ if(tempArray1[i] != tempArray2[i])
+    {
+        status = false;
+    }
+}
+}
+else
+{
+    status = false;
+}
+if (status)
+        {
+            System.out.println("Two Arrays Are Equal");
+        }         
+     }
+}
+
+
+		

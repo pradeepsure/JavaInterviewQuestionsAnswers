@@ -1,0 +1,60 @@
+Ways to make an object eligible for gc
+===================================
+
+1>Nullifying the reference
+=========
+if object is no longer in use then we can assign null to it's reference
+Student s1 = new Student();
+s1=null;
+
+2>Reassign the reference variable
+=========
+Student s1 = new Student();
+Student s2 = new Student();
+s2=s1;
+s1 is elligible
+
+3>Object created inside a method
+===========
+Once method completes
+Class Test{
+psvm(){
+Student s1=new Student();
+.
+.
+}
+}
+
+Methods for requesting JVM to run GC
+=============================
+Once object is elligible for gc, it may not be destroyes immediately by GC. Depend on JVM.
+We can request JVM to run GC, agian it's no guaranty that jvm will run GC on request as well.
+
+By System class
+===============
+System.gc();
+
+
+By Runtime class
+===============
+Runtime r = Runtime.getRuntime();
+r.gc();
+
+
+Finalization
+=============
+Before object is destroyed, gc calls finalize() method to perform cleanup activities.
+System.gc();
+
+Note-> While executing finalize() method JVM ignores only uncaught exception.
+
+Note->On any object,GC calls finalize() only once.
+
+Note->The behavior of GC is vendor dependent and varied from JVm to JVM.
+Whenever program runs with low memory then JVM runs GC, but can't expect at what time.
+Most GC follow Mark and Sweep algorithm.
+
+Memory Leaks
+============
+An object which is of no use in program and still that is not eligible for GC such type of object are memory leaks.
+In case of memory leaks GC can't do anything and it leads to OutOfMemoryException.

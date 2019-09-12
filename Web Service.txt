@@ -1,0 +1,42 @@
+﻿Web Service
+Services that can be accessed over network are called web services.
+web services are meant for applications to access data in the format of XML, JSON etc.
+
+There are two types of web services.
+SOAP: SOAP stands for Simple Object Access Protocol. SOAP is an XML based industry standard protocol for designing and developing web services.
+ Since it’s XML based, it’s platform and language independent.
+ So our server can be based on JAVA and client can be on .NET, PHP etc. and vice versa.
+ 
+REST: REST is an architectural style for developing web services. 
+It’s getting popularity recently because it has small learning curve when compared to SOAP.
+ Resources are core concepts of Restful web services and they are uniquely identified by their URIs.
+
+ Java provides it’s own API to create both SOAP as well as REST web services.
+JAX-WS: JAX-WS stands for Java API for XML Web Services. JAX-WS is XML based Java API to build web services server and client application.
+JAX-RS: Java API for RESTful Web Services (JAX-RS) is the Java API for creating REST web services. 
+JAX-RS uses annotations to simplify the development and deployment of web services.
+
+Java RESTful Web Services API
+Java API for RESTful Web Services (JAX-RS) is the Java API for creating REST web services. 
+JAX-RS uses annotations to simplify the development and deployment of web services. 
+JAX-RS is part of JDK, so you don’t need to include anything to use it’s annotations.
+
+Some of the important JAX-RS annotations are:
+
+@Path: used to specify the relative path of class and methods. We can get the URI of a webservice by scanning the Path annotation value.
+@GET, @PUT, @POST, @DELETE and @HEAD: used to specify the HTTP request type for a method.
+@Produces, @Consumes: used to specify the request and response types.
+@PathParam: used to bind the method parameter to path value by parsing it.
+
+Restful Web Services and SOAP
+1)	SOAP is a protocol.	REST is an architectural style.
+2)	SOAP stands for Simple Object Access Protocol.	REST stands for REpresentational State Transfer.
+3)	SOAP can't use REST because it is a protocol.	REST can use SOAP web services because it is a concept and can use any protocol like HTTP, SOAP.
+4)	SOAP uses services interfaces to expose the business logic.	REST uses URI to expose business logic.
+5)	JAX-WS is the java API for SOAP web services.	JAX-RS is the java API for RESTful web services.
+6)	SOAP defines standards to be strictly followed.	REST does not define too much standards like SOAP.
+7)	SOAP requires more bandwidth and resource than REST.	REST requires less bandwidth and resource than SOAP.
+8)	SOAP defines its own security.	RESTful web services inherits security measures from the underlying transport.
+9)	SOAP permits XML data format only.	REST permits different data format such as Plain text, HTML, XML, JSON etc.
+10)	SOAP is less preferred than REST.	REST more preferred than SOAP.
+

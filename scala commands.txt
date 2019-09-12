@@ -1,0 +1,22 @@
+sbt new scala/scala-seed.g8
+cd project
+sbt compile
+sbt run
+cd project/project
+notepad plugins.sbt
+
+https://github.com/sbt/sbteclipse
+
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "5.2.4")
+
+cd project
+sbt eclipse
+
+folder
+path=C:\Users\EBIBMEH\Desktop\Play Training\play-2.2.6\play-2.2.6;%path%
+
+play new FirstPlayApp
+play
+run
+
+

@@ -1,0 +1,12 @@
+By using enum we can define our own datatype.
+
+enum Beer
+{
+KF,KO;
+}
+
+final class Beer extends java.lang.Enum{
+public static final Beer KF=new Beer();
+public static final Beer KO=new Beer();
+}
+

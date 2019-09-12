@@ -1,0 +1,92 @@
+Singleton pattern is a design pattern which restricts a class to instantiate its multiple objects.
+
+Singleton classes are used for logging, driver objects, caching and thread pool, database connections.
+
+It should have only one instance : This is done by making the constructor private in java so that no class can access 
+the constructor and hence cannot instantiate it.
+Instance should be globally accessible : In java it is done by making the access-specifier of instance public
+
+Initialization Types of Singleton
+=====================
+Early initialization : In this method, class is initialized whether it is to be used or not.
+You initiate the class at the time of class loading. Its drawback is that class is always initialized whether it is being used or not.
+
+//A singleton class should have public visiblity 
+//so that complete application can use 
+public class GFG {    
+  //static instance of class globally accessible 
+  public static GFG instance = new GFG(); 
+  private GFG() { 
+    // private constructor so that class 
+    //cannot be instantiated from outside 
+    //this class 
+  } 
+   public static GFG getInstance(){  
+  return obj;  
+ }  
+}
+
+Lazy initialization : In this method, class in initialized only when it is required. 
+It can save you from instantiating the class when you don’t need it. Generally lazy initialization is used when we create a singleton class. 
+   
+public class JDBCSingleton {  
+	 private static JDBCSingleton jdbc;  
+           
+     private JDBCSingleton() {  }  
+        
+	 public static JDBCSingleton getInstance() {    
+		 if (jdbc==null)  
+	   {  
+				jdbc=new  JDBCSingleton();  
+	   }  
+	   return jdbc;  
+	 } 
+ // to get the connection from methods like insert, view etc.   
+	  private static Connection getConnection()throws ClassNotFoundException, SQLException  
+	  {  
+		  Connection con=null;  
+		  Class.forName("com.mysql.jdbc.Driver");  
+		  con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ashwanirajput", "root", "ashwani");  
+		  return con;  
+			
+	  } 	 
+	  //to insert the record into the database   
+          public int insert(String name, String pass) throws SQLException  
+          {  
+              Connection c=null;  
+              PreparedStatement ps=null;  
+              try {  
+                    
+                      c=this.getConnection();  
+                      ps=c.prepareStatement("insert into userdata(uname,upassword)values(?,?)");  
+                      ps.setString(1, name);  
+                      ps.setString(2, pass);  
+                      recordCounter=ps.executeUpdate();  
+                        
+              } catch (Exception e) { e.printStackTrace(); } 
+			  finally{  
+                    if (ps!=null){  
+                      ps.close();  
+                  }if(c!=null){  
+                      c.close();  
+                  }   
+              }  
+          }   
+}
+
+class JDBCSingletonDemo{  ;  
+    public static void main(String[] args) throws IOException {   
+        JDBCSingleton jdbc= JDBCSingleton.getInstance();  
+		int i= jdbc.insert(username, password); 
+ }		
+		
+			
+
+Examples of Singleton class
+
+java.lang.Runtime : Java provides a class Runtime in its lang package which is singleton in nature. 
+Every Java application has a single instance of class Runtime that allows the application to interface with the 
+environment in which the application is running. The current runtime can be obtained from the getRuntime() metho
+
+There is a lot of applications of singleton pattern like cache-memory, database connection, drivers, logging. Some major of them are :-
+

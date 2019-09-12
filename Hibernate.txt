@@ -1,0 +1,68 @@
+get()									load()
+=========================================================================================
+Returns null if object is not found.	Throws ObjectNotFoundException if object is not found.
+get() method always hit the database.	load() method doesn't hit the database.
+It returns real object not proxy.		It returns proxy object.
+It should be used if you are not sure   It should be used if you are sure that instance exists. 
+about the existence of instance.	
+
+
+Hibernate SessionFactory getCurrentSession
+====================
+Hibernate SessionFactory getCurrentSession() method returns the session bound to the context. But for this to work, 
+we need to configure it in hibernate configuration file like below.
+<property name="hibernate.current_session_context_class">thread</property>
+
+Since this session object belongs to the hibernate context, we don’t need to close it. Once the session factory is closed, 
+this session object gets closed.
+
+Hibernate SessionFactory openSession
+=============================
+Hibernate SessionFactory openSession() method always opens a new session. 
+We should close this session object once we are done with all the database operations.
+We should open a new session for each request in multi-threaded environment. 
+For web application frameworks, we can choose to open a new session for each request or for each session based on the requirement.
+
+States of Entity Instances
+======================
+•	transient — this instance is not, and never was, attached to a Session; 
+	this instance has no corresponding rows in the database; it’s usually just a new object that you have created to save to the database;
+•	persistent — this instance is associated with a unique Session object; 
+	upon flushing the Session to the database, this entity is guaranteed to have a corresponding consistent record in the database;
+•	detached — this instance was once attached to a Session (in a persistent state), but now it’s not; 
+	an instance enters this state if you evict it from the context, clear or close the Session, or put the instance through serialization/deserialization process.
+
+
+The Session interface has several methods that eventually result in saving data to the database: persist, save, update, merge, saveOrUpdate
+Session.save()
+==============
+save() method runs the insert query
+save() method saves the transient entity. Before saving, it generates identifier .
+
+Session.update()
+============
+update() method updates the entity for persistence using the identifier of detached object or 
+new instance of entity created with existing identifier. 
+If the object is already in the session with the same identifier, then it throws exception.
+
+Session.saveOrUpdate()
+======================
+saveOrUpdate() method of Session class works as save() or update() method. 
+First hibernate checks the existence of instance of entity and 
+if not available then inserts the data into database and if available then updates the data. 
+
+Hibernate persist 
+==================
+is similar to save (with transaction) and it adds the entity object to the persistent context, 
+so any further changes are tracked. If the object properties are changed before the transaction is committed or session is flushed, 
+it will also be saved into database.
+
+Hibernate update 
+=================
+should be used where we know that we are only updating the entity information. 
+This operation adds the entity object to persistent context and further changes are tracked and saved when transaction is committed.
+
+Hibernate merge 
+===============
+can be used to update existing values, however this method create a copy from the passed entity object and return it. 
+The returned object is part of persistent context and tracked for any changes, passed object is not tracked. 

@@ -1,0 +1,185 @@
+Custom Filter
+==================
+var app = angular.module('app', []);
+app.filter('makeUppercase', function () {
+  return function (item) {
+      return item.toUpperCase();
+  };
+});
+
+app.controller('PersonCtrl', function () {
+  this.username = 'Todd Motto';
+});
+
+
+<div ng-app="app">
+  <div ng-controller="PersonCtrl as person">
+    <p>
+      {{ person.username | makeUppercase }}
+    </p>
+  </div>
+</div>
+
+Custom Directive
+==================
+var app = angular.module('app', []);
+ app.directive("myDir", function () { 
+ return { 
+	restrict: "E", 
+	//define directive type like 
+		E = element, 
+		A = attribute, 
+		C = class, 
+		M = comment 
+	scope: { //create a new child scope or an isolate scope 
+		title: '@'  //@ reads the attribute value, 
+				   //= provides two-way binding, 
+				  //& works with functions
+		}, 
+	template: "<div>{{ myName }}</div>",
+		// define HTML markup 
+	templateUrl: 'mytemplate.html', 
+		//path to the template, used by the directive 
+	replace: true | false, // replace original markup with template yes/no 
+	transclude: true | false, // copy original HTML content yes/no 
+	controller: function (scope) {
+		//define controller, associated with the directive template 
+		//TODO: 
+		},
+	link: function (scope, element, attrs, controller) {
+		//define function, used for DOM manipulation //TODO: 
+		} 
+	} 
+});
+
+ways to invoke a directive
+==========================
+Method Syntax As an attribute <span my-directive></span> 
+As a class <span class="my-directive: expression;"></span> 
+As an element <my-directive></my-directive> 
+As a comment <!-- directive: my-directive expression -->
+
+How AngularJS is initialized manually
+=====================================
+<script> 
+	var app = angular.module('myApp', []); 
+	app.controller('Ctrl', function ($scope) { 
+		$scope.msg = 'World'; 
+	}); 
+	//manual bootstrap process 
+	angular.element(document).ready(function () {
+		angular.bootstrap(document, ['myApp']); 
+		}); 
+</script>
+
+You should not use the ng-app directive when manually bootstrapping your app.
+You should not mix up the automatic and manual way of bootstrapping your app. 
+Define modules, controller, services etc. before manually bootstrapping your app as defined in above example.
+
+
+AngularJS is initialized automatically?
+========================================
+Angular initializes automatically upon DOMContentLoaded event or when the angular.js script is downloaded to the browser
+and the document.readyState is set to complete. At this point AngularJS looks for the
+ng-app directive which is the root of angular app compilation and tells about AngularJS part within DOM.
+When the ng-app directive is found then Angular will:
+1. Load the module associated with the directive.
+2. Create the application injector.
+3. Compile the DOM starting from the ng-app root element.
+
+Root Scope
+==============
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+app.controller('myCtrl', function($scope) {
+    $scope.color = "red";
+});
+</script>
+
+
+var app = angular.module('ScopeChain', []); 
+app.controller("parentController", function ($scope) {
+ $scope.managerName = 'Shailendra Chauhan'; 
+ $scope.$parent.companyName = 'Dot Net Tricks'; //attached to $rootScope
+
+ 
+ How AngularJS handle data binding?
+ ====================================
+ AngularJS handle data-binding mechanism with the help of three powerful functions: $watch(), $digest() and $apply().
+ difference between $watch, $digest and $apply?
+ 
+ When you create a data binding from somewhere in your view to a variable on the $scope object, 
+ AngularJS creates a "watch" internally. A watch means that AngularJS watches changes in the variable on the $scope object. 
+ The framework is "watching" the variable. Watches are created using the $scope.$watch().
+ 
+ $watch(watchExpression, listener, [objectEquality])
+ 
+ At key points in your application AngularJS calls the $scope.$digest() function. 
+ This function iterates through all watches and checks if any of the watched variables have changed. 
+ If a watched variable has changed, a corresponding listener function is called. 
+ The listener function does whatever work it needs to do, for instance changing an HTML text to
+ reflect the new value of the watched variable. Thus, the $digest() function is what triggers the data binding to update.
+
+ The $digest() function is called whenever AngularJS thinks it is necessary. 
+ For example, after a button click, or after an AJAX call. 
+ You may have some cases where AngularJS does not call the $digest() function for you. In that case you have to call it yourself.
+ 
+ $apply() - Angular do auto-magically updates only those model changes which are inside AngularJS context.
+ When you do change in any model outside of the Angular context (like browser DOM events, setTimeout, XHR or third party libraries),
+ then you need to inform Angular of the changes by calling $apply() manually. 
+ When the $apply() function call finishes AngularJS calls $digest() internally, so all data bindings are updated.
+ 
+ 
+ $watch()
+ ==========
+The $scope.watch() function creates a watch of some variable. When you register a watch you pass two functions as parameters to the $watch() function:
+
+A value function
+A listener function
+Here is an example:
+
+$scope.$watch(function() {},
+              function() {}
+             );
+			 
+This example valule function returns the $scope variable scope.data.myVar. If the value of this variable changes, 
+a different value will be returned, and AngularJS will call the listener function.		
+	 
+ $scope.$watch(function(scope) { return scope.data.myVar },
+  function(newValue, oldValue) {
+	  document.getElementById("").innerHTML =
+		  "" + newValue + "";
+  }
+ );
+ 
+ $digest()
+ ==========
+The $scope.$digest() function iterates through all the watches in the $scope object, and its child $scope objects (if it has any). 
+When $digest() iterates over the watches, it calls the value function for each watch. 
+If the value returned by the value function is different than the value it returned the last time it was called,
+ the listener function for that watch is called.
+
+The $digest() function is called whenever AngularJS thinks it is necessary. For instance, 
+after a button click handler has been executed, or after an AJAX call returns (after the done() / fail() callback function has been executed).
+
+
+$apply()
+The $scope.$apply() function takes a function as parameter which is executed, and after that $scope.$digest() is called internally.
+ That makes it easier for you to make sure that all watches are checked, and thus all data bindings refreshed. 
+
+$scope.$apply(function() {
+    $scope.data.myVar = "Another value";
+});
+The function passed to the $apply() function as parameter will change the value of $scope.data.myVar. 
+When the function exits AngularJS will call the $scope.$digest() function so all watches are checked for changes in the watched values.
+
+
+ =======================================
+ Custome Service
+ 
+ 
+ 
+ 

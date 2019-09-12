@@ -1,0 +1,105 @@
+List Interface-->duplicate allowed, ine=sertion preserved.
+==============
+
+ArrayList--> insertion order, duplicate allowed, ds used here is dynamic array, best use for retriveing, 
+==========			worst for insertion/deletion in middle due to several internal shift, non synchronized, implements randomAccess interface.
+	
+Linked list-->	insertion order, duplicate allowed, ds used here is double linked list, best use for insertion/deletion, impelements Seriazable/cloneable interface,
+===========				no randomAccess Interface, non synchronized.
+				
+Vector-->ds is dynamic array, synchronized, insertion order preserved, implements randomAccess/Seriazable/cloneable interface
+========
+
+Stack-->stack is the subclass of Vector. It implements the last-in-first-out data structure
+==========
+
+				
+Set Interface-->duplicate not allowed, insertion order not preserved.
+================
+
+HashSet-->Ds is Hashtable,insertion order not preserved,no duplicates, null insertion is possible only once,implements Seriazable/cloneable interface, not randomAccess,
+=========
+			search operations
+
+Linked HashSet--> Ds is Linked list and Hashtable, insertion preserved, mainly used for cache application where insertion and no duplicate
+==============
+
+Sorted Set(I)-->no duplicate, SortedSet are arranged in the increasing (ascending) order or some sorting order, 
+==============
+
+NavigableSet(I)--> provides several methods for navigation purpose.
+=============
+			
+TreeSet-->uses a tree for storage, insertion not preserved uses some sorting order, heterogenous not allowed.Access and retrieval times are quiet fast.
+=========			for empty treeSet 1st element can be null, can't add null for non empty set.
+
+Comparable Interface-->java.lang package, compareTo method available, used to order the objects of user-defined class.
+===================					   comparable meant for default natural sorting order.
+					   It provide single sorting sequence only i.e. you can sort the elements on based on single data member only. 
+					   
+Collections class provides static methods for sorting the elements of collections. 
+If collection elements are of Set or Map, we can use TreeSet or TreeMap. But We cannot sort the elements of List. 
+Collections class provides methods for sorting the elements of List type elements
+
+public void sort(List list): is used to sort the elements of List. List elements must be of Comparable type.
+
+
+Comparator Interface-->meant for customized sorting order
+===================		This interface is found in java.util package and contains 2 methods compare(Object obj1,Object obj2) and equals(Object element).
+
+It provides multiple sorting sequence i.e. you can sort the elements on the basis of any data member, for example rollno, name, age or anything else.
+
+
+					   
+Queue Interface--> Queue interface maintains the first-in-first-out order. It can be defined as an ordered list that is used to hold the elements which are about to be processed.
+===============		
+
+Map Interface--> based on key-value pair, Map is useful if you have to search, update or delete elements on the basis of key.
+==============	Map doesn't allow duplicate keys, but you can have duplicate values.
+
+				 for(Map.Entry m:map.entrySet()){  
+				   System.out.println(m.getKey()+" "+m.getValue());  
+				  }  
+ 
+HashMap--> Ds is HashTable, no duplicate keys but values allowed, insertion order is not preserved and it is based on hashcode of keys,
+=======     null for key only once and any time for values, nest suitable for search
+
+Hashtable-->every method is synchronized, null not allowed for both key and value
+==========Java Hashtable class implements a hashtable, which maps keys to values. It inherits Dictionary class and implements the Map interface.
+			A Hashtable is an array of list. Each list is known as a bucket. The position of bucket is identified by calling the hashcode()
+			method. A Hashtable contains values based on the key.
+			duplicate keys not allowed but values can be.
+			
+	
+LinkedHashMap--> Ds is Hashtable+linkedlist, insertion order is preserved,It may have one null key and multiple null values.
+=============
+
+Identity HashMap-->same as Hashmap but in case of hashmap jvm will use .equals() to identify duplicate keys but in identityhashmap it uses ==
+================   
+
+WeakHashmap--> same as Hashmap but in case of normal Hashmap an object is not eligible for GC even if it doesn't have any reference.
+===========			But in case of WeakHashMap, it is eligible.
+
+SortedMap(Interface)-->if we want to represent group of key-value according to some sorting order.
+=====================   sorting only on keys
+
+TreeMap-->Ds is tree, It cannot have null key but first entry is allowed and can have multiple null values.
+========	insertion order is not preserved and follow some sorting order.
+			unique key but duplicate values.
+			
+			
+Properties-->child of Hashtable,variable like DBusername,password etc can be place here.
+==========  Properties p = new Properties();
+			FileInputStream fis = new FIS("db.properties");
+			p.load(fis);
+			
+			String url = p.getProperty("url");
+			
+			FileOutputStream out = new FileOutputStream("db.properties");
+			p.store(out,"updated by Bibun");
+
+IdentityHashMap is similar to HashMap except that it uses reference equality when comparing elements. IdentityHashMap class is not a widely used Map implementation. While this class implements the Map interface, it intentionally violates Map’s general contract, which mandates the use of the equals() method when comparing objects. IdentityHashMap is designed for use only in the rare cases wherein reference-equality semantics are required.
+
+WeakHashMap is an implementation of the Map interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage collected when its key is no longer referenced outside of the WeakHashMap. This class is intended primarily for use with key objects whose equals methods test for object identity using the == operator. Once such a key is discarded it can never be recreated, so it is impossible to do a look-up of that key in a WeakHashMap at some later time and be surprised that its entry has been removed.
+
+						

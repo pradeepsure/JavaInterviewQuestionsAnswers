@@ -1,0 +1,195 @@
+declaring a varaible
+
+Type script is inteligent
+message : string  = 'HI how are you';
+
+console.log(message);
+
+Event Binding
+
+dataBInding - > Interpolateion {{username}} data take from component and display in view
+
+eventBinding -> tie up with user event
+
+twoWaydataBinding -> [(ngModel)] -> (Angluar Directive) = 'username'
+
+rootmodule
+
+rootComponent
+
+webservice -> A Service delivered over the web
+
+Software system designed to support interable maschine to maschine interaction over a network
+
+webservice serviceProvider
+
+Transport how a service is called
+
+or service exposed over a HTTP and MQ
+
+
+DataExchangeFormat -> No Restriction json is popular
+Transport ->Only http
+service defination -> No Standards WADL(WebApplicationDefinationLanguage)/Swagger
+
+
+
+	
+Angular 7 Routing and Sub Routing Tutorial With Example is today’s leading topic. 
+If you want to navigate to different pages in your application, but you also want the application to be an SPA (Single Page Application), 
+with no page reloading, then your app needs routing and angular makes it very easy. Routing means navigating between the pages. 
+You have seen many websites with links that direct you to the new page. This can be achieved using routing.
+
+We also see the sub routing or children routing for our components. That means, in our application, there is one root route and other routes are for their respective components. If we want to make our Angular application modular, then it is the best practice to assign the routes module-wise. We will take an example of how we can create root route and child routes in this angular 7 routing and sub routing tutorial with an example.
+
+Property binding in Angular 5 is one-way, in that communication goes from the component class to the template.
+
+Try changing the value of the input, and you will notice that goalText becomes updated from the template to the component, which is demonstrated by the span element that we added.\
+
+
+
+
+
+app.module.ts
+=============
+declarations
+imports[BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule]
+providers
+bootstrap
+
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+
+
+
+
+
+AJAX
+====
+1. An event occurs in a web page (the page is loaded, a button is clicked)
+2. An XMLHttpRequest object is created by JavaScript
+3. The XMLHttpRequest object sends a request to a web server
+4. The server processes the request
+5. The server sends a response back to the web page
+6. The response is read by JavaScript
+7. Proper action (like page update) is performed by JavaScript
+
+ 
+
+
+For parent-child communication, simply pass props.
+
+Use state to store the data your current page needs in your controller-view.
+
+Use props to pass data & event handlers down to your child components.
+
+These lists should help guide you when working with data in your components.
+
+Props
+=======
+are immutable
+which lets React do fast reference checks
+are used to pass data down from your view-controller
+your top level component
+have better performance
+use this to pass data to child components
+
+
+State
+======
+should be managed in your view-controller
+your top level component
+is mutable
+has worse performance
+should not be accessed from child components
+pass it down with props instead
+
+
+
+
+
+
+The Feign client removes the need to write boilerplate code for the REST client. 
+The REST client can just keep the same signature as the REST service and the internals will be handled by the Feign client.
+
+
+
+
+hashCode() :
+
+If you only override hash-code method nothing will happen. Because it always return new hashCode for each object as an Object class.
+
+equals() :
+
+If you only override equal method, a.equals(b) is true it means the hashCode of a and b must be same but not happen. Because you did not override hashCode method.
+
+Note :  hashCode() method of Object class always return new hashCode for each object.
+
+So when you need to use your object in the hashing based collection, must override both equals() and hashCode().
+
+
+The map() function is a method in the Stream class that represents a functional programming concept. In simple words, the map() is used to transform one object into other by applying a function.
+
+
+	@GetMapping("/jpa/users/{username}/todos")
+	public List<Todo> getAllTodos(@PathVariable String username){
+		return todoJpaRepository.findByUsername(username);
+		//return todoService.findAll();
+	}
+
+	@GetMapping("/jpa/users/{username}/todos/{id}")
+	public Todo getTodo(@PathVariable String username, @PathVariable long id){
+		return todoJpaRepository.findById(id).get();
+		//return todoService.findById(id);
+	}
+
+	//DELETE /users/{username}/todos/{id}
+	@DeleteMapping("/jpa/users/{username}/todos/{id}")
+	public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id){
+		
+		//Todo todo = todoService.deleteById(id);
+		todoJpaRepository.deleteById(id);
+		
+		return ResponseEntity.noContent().build();
+		//return ResponseEntity.notFound().build();
+	}
+	
+
+	//Edit/Update a Todo
+	//PUT /users/{user_name}/todos/{todo_id}
+	@PutMapping("/jpa/users/{username}/todos/{id}")
+	public ResponseEntity<Todo> updateTodo(@PathVariable String username,@PathVariable long id, @RequestBody Todo todo){
+		
+		//Todo todoUpdated = todoService.save(todo);
+		Todo todoUpdated = todoJpaRepository.save(todo);
+		
+		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+	}
+	
+	@PostMapping("/jpa/users/{username}/todos")
+	public ResponseEntity<Void> createTodo(@PathVariable String username, @RequestBody Todo todo){
+		
+		//Todo createdTodo = todoService.save(todo);
+		todo.setUsername(username);
+		Todo createdTodo = todoJpaRepository.save(todo);
+		
+		//Location
+		//Get current resource url
+		///{id}
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
+		
+		return ResponseEntity.created(uri).build();
+	}
+
+
+
+
+
+

@@ -1,0 +1,209 @@
+hashCode() :
+
+If you only override hash-code method nothing will happen. Because it always return new hashCode for each object as an Object class.
+
+equals() :
+
+If you only override equal method, a.equals(b) is true it means the hashCode of a and b must be same but not happen. Because you did not override hashCode method.
+
+Note :  hashCode() method of Object class always return new hashCode for each object.
+
+So when you need to use your object in the hashing based collection, must override both equals() and hashCode().
+
+
+The map() function is a method in the Stream class that represents a functional programming concept. In simple words, the map() is used to transform one object into other by applying a function.
+
+
+16 buckets created
+
+0 to 15 indexes 
+
+each backet is a node
+
+put(key k,value v)
+
+it will calculate 
+hashcode=hash(key)
+
+hashcode is used while storing and retrieving value we use the hashcode 
+
+hashcode=hash("abc") //111111112
+
+hashcode will help us to put perticular this key inside some specific bucket
+
+index=hash&(n-1)
+
+node -> LinkedList -> 1)key 2)hashcode 3)value 4)next
+
+every bucket has a linked list
+
+Node is a static inner class 
+
+hash key value next
+
+loadfactor is 0.75 it will be double
+
+when the map size reaches 12 entries to a map the table size is going to be a double (thereshold = 12)
+
+how to calculate threshold
+
+now the table capacity
+
+loadfactor*capacity  0.75*16=12 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for get method
+
+get("abc") -> only key 
+
+
+when hash collison happening first it will check hashcode after it will chey the key using equals method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SPRIN_IOC
+=========
+
+interface Sim{calling(),data()}
+
+class Airtel implements Sim{calling(){},data(){}}
+class Vodafone implements Sim{calling(){},data(){}}
+
+class Mobile{main(){Airtel air = new Airtel();air.calling();air.data();}}
+
+
+always need to change the source code;
+
+source code need to fix
+
+Don't touch the source code
+this App should be configurable
+
+I can creacte Objects for you
+and i Can manage your objects
+
+
+always focous on business logic
+
+
+
+you can create a Config file
+
+i have IOC Container
+
+Read your config file  using ioc container
+store all the objects inside the container
+
+
+
+Spring Bean: Bean these are the objects inside IOC Container
+
+
+getBean("a");
+
+How to use IOC Container: 
+
+IOC COntainer: I create the Objects and Manage the Objects
+
+1)Bean Factory
+2)Application Context
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+@GetMapping("/jpa/users/{username}/todos")
+	public List<Todo> getAllTodos(@PathVariable String username){
+		return todoJpaRepository.findByUsername(username);
+		//return todoService.findAll();
+	}
+
+	@GetMapping("/jpa/users/{username}/todos/{id}")
+	public Todo getTodo(@PathVariable String username, @PathVariable long id){
+		return todoJpaRepository.findById(id).get();
+		//return todoService.findById(id);
+	}
+
+	//DELETE /users/{username}/todos/{id}
+	@DeleteMapping("/jpa/users/{username}/todos/{id}")
+	public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id){
+		
+		//Todo todo = todoService.deleteById(id);
+		todoJpaRepository.deleteById(id);
+		
+		return ResponseEntity.noContent().build();
+		//return ResponseEntity.notFound().build();
+	}
+	
+
+	//Edit/Update a Todo
+	//PUT /users/{user_name}/todos/{todo_id}
+	@PutMapping("/jpa/users/{username}/todos/{id}")
+	public ResponseEntity<Todo> updateTodo(@PathVariable String username,@PathVariable long id, @RequestBody Todo todo){
+		
+		//Todo todoUpdated = todoService.save(todo);
+		Todo todoUpdated = todoJpaRepository.save(todo);
+		
+		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+	}
+	
+	@PostMapping("/jpa/users/{username}/todos")
+	public ResponseEntity<Void> createTodo(@PathVariable String username, @RequestBody Todo todo){
+		
+		//Todo createdTodo = todoService.save(todo);
+		todo.setUsername(username);
+		Todo createdTodo = todoJpaRepository.save(todo);
+		
+		//Location
+		//Get current resource url
+		///{id}
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
+		
+		return ResponseEntity.created(uri).build();
+	}
