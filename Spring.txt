@@ -1,3 +1,8 @@
+There are multiple ways to configure bean life cycles methods in your spring application as described below.
+1.Using spring core annotations (@PostConstruct and @PreDestroy)
+2.Using spring XML configuration(init-method and destroy-method)
+3.Implementing interfaces like Iinitializingbean and disposablebean
+
 @controller and @RestController
 ===============================
 When you use the @ResponseBody annotation on a method, Spring converts the return value and writes it to the HTTP response automatically. 
