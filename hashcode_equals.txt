@@ -144,7 +144,19 @@ IOC COntainer: I create the Objects and Manage the Objects
 
 
 
- 
+Spring Inversion of Control
+==============================
+1)Creating Objects for US
+2)Managing Our Objects
+3)Helping our application to be configurable
+4)Managing Dependencies.
+
+
+Spring IOC : IOC means Inversion of Control. It means, rather than we creating the java objects, spring will create the objects.
+Spring Bean: In spring terminology, java object is called a bean. 
+
+
+BeanCreationException: Error setting Property values: invalid SetMethod 
  
 
 
@@ -207,3 +219,7 @@ IOC COntainer: I create the Objects and Manage the Objects
 		
 		return ResponseEntity.created(uri).build();
 	}
+
+	
+	
+	
