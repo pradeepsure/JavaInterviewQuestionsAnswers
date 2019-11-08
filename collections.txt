@@ -1,11 +1,41 @@
-List Interface-->duplicate allowed, ine=sertion preserved.
+Array
+=====
+1)An array is basic functionality provided by Java. 
+2)Array is a fixed size data structure 
+3)Array can contain both primitive data types as well as objects of a class depending on the definition of the array.
+
+ArrayList
+=========
+1)ArrayList is part of collection framework in Java. Therefore array members are accessed using [], while ArrayList has a set of methods to access elements and modify them.
+2)while ArrayList is not. One need not to mention the size of Arraylist while creating its object. Even if we specify some initial capacity, we can add more elements.
+3)However, ArrayList only supports object entries, not the primitive data types.
+
+Note: When we do arraylist.add(1); : it converts the primitive int data type into an Integer object. Sample Code:
+
+
+Since ArrayList can’t be created for primitive data types, members of ArrayList are always references to objects at different memory locations. Therefore in ArrayList, the actual objects are never stored at contiguous locations. References of the actual objects are stored at contiguous locations.
+In array, it depends whether the arrays is of primitive type or object type. In case of primitive types, actual values are contiguous locations, but in case of objects, allocation is similar to ArrayList.
+
+
+
+
+
+
+
+
+
+List Interface-->duplicate allowed, insertion preserved.
 ==============
 
-ArrayList--> insertion order, duplicate allowed, ds used here is dynamic array, best use for retriveing, 
-==========			worst for insertion/deletion in middle due to several internal shift, non synchronized, implements randomAccess interface.
+ArrayList--> 
+==========			
+insertion order, duplicate allowed, ds used here is dynamic array, best use for retriveing, 
+
+worst for insertion/deletion in middle due to several internal shift, non synchronized, implements randomAccess interface.
 	
-Linked list-->	insertion order, duplicate allowed, ds used here is double linked list, best use for insertion/deletion, impelements Seriazable/cloneable interface,
-===========				no randomAccess Interface, non synchronized.
+
+Linked list-->	insertion order, duplicate allowed, ds used here is double linked list, best use for insertion/deletion, impelements Seriazable/cloneable interface,no randomAccess Interface, non synchronized.
+			
 				
 Vector-->ds is dynamic array, synchronized, insertion order preserved, implements randomAccess/Seriazable/cloneable interface
 ========
@@ -62,7 +92,7 @@ Map Interface--> based on key-value pair, Map is useful if you have to search, u
 				  }  
  
 HashMap--> Ds is HashTable, no duplicate keys but values allowed, insertion order is not preserved and it is based on hashcode of keys,
-=======     null for key only once and any time for values, nest suitable for search
+=======     null for key only once and any time for values, best suitable for search
 
 Hashtable-->every method is synchronized, null not allowed for both key and value
 ==========Java Hashtable class implements a hashtable, which maps keys to values. It inherits Dictionary class and implements the Map interface.
@@ -103,3 +133,33 @@ IdentityHashMap is similar to HashMap except that it uses reference equality whe
 WeakHashMap is an implementation of the Map interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage collected when its key is no longer referenced outside of the WeakHashMap. This class is intended primarily for use with key objects whose equals methods test for object identity using the == operator. Once such a key is discarded it can never be recreated, so it is impossible to do a look-up of that key in a WeakHashMap at some later time and be surprised that its entry has been removed.
 
 						
+
+						
+						
+						
+						
+						
+						
+If you see then logical difference between these two is Comparator in Java compare two objects provided to him, while Comparable interface compares "this" reference with the object specified. I have shared lot of tips on how to override compareTo() method and avoid some common mistakes programmer makes while implementing Comparable interface.
+
+Read more: https://javarevisited.blogspot.com/2011/06/comparator-and-comparable-in-java.html#ixzz64NYQ9jPO
+
+
+
+
+
+When to use Comparator and Comparable in Java
+At last let’s see some best practices and recommendation on when to use Comparator or Comparable in Java:
+
+1) If there is a natural or default way of sorting Object already exist during development of Class than use Comparable. This is intuitive and you given the class name people should be able to guess it correctly like Strings are sorted chronically, Employee can be sorted by there Id etc. On the other hand if an Object can be sorted on multiple ways and client is specifying on which parameter sorting should take place than use Comparator interface. for example Employee can again be sorted on name, salary or department and clients needs an API to do that. Comparator implementation can sort out this problem.
+
+2) Some time you write code to sort object of a class for which you are not the original author, or you don't have access to code. In these cases you can not implement Comparable and Comparator is only way to sort those objects.
+
+3) Beware with the fact that How those object will behave if stored in SorteSet or SortedMap like TreeSet and TreeMap. If an object doesn't implement Comparable than while putting them into SortedMap, always provided corresponding Comparator which can provide sorting logic.
+
+4) Order of comparison is very important while implementing Comparable or Comparator interface. for example if you are sorting object based upon name than you can compare first name or last name on any order, so decide it judiciously. I have shared more detailed tips on compareTo on my post how to implement CompareTo in Java.
+
+5) Comparator has a distinct advantage of being self descriptive  for example if you are writing Comparator to compare two Employees based upon there salary than name that comparator as SalaryComparator, on the other hand compareTo()
+
+
+Read more: https://javarevisited.blogspot.com/2011/06/comparator-and-comparable-in-java.html#ixzz64NtrBLjO

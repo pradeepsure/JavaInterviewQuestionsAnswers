@@ -1,0 +1,148 @@
+Comparable vs Comparator
+
+Comparable meant for default nature sorting order
+Java.lang package
+one method compareTo() available
+all wrapper classes and String class implements comparable
+
+
+Compartor meant for customized nature sorting order
+java.util package
+compare() and equals() method
+Two classes implements Collator and RuleBasedCollater classes
+
+
+Exception
+=========
+An unwanted unexpected event that disturbs normal flow of Programme.
+
+
+If something goes wrong we have to handle that situation
+
+purpose
+if something is wrong we should not loose anything -> grasefull termination
+
+
+defining alternative way to continue rest of the programme normally is nothing but exception handling
+
+
+Hieraricy
+=========
+
+	Throwable(Class)
+
+1)Exception         2)Error -> VM Error,StackOverflowError,
+
+--->Exceptions are recoverable
+
+--->Programmers need to handle
+
+===>Errors are not caused by programes
+
+====>Errors are not recoverable   example: Due to lac of system resourses 
+
+
+
+
+
+
+
+1)RuntimeException  -> ArrayIndexOutOfBoundException,ClassCastException
+2)IO Exception -> EOF Exception, FileNOtFoundException
+3)Interrupted Exception
+4)RemoteExcetpion
+
+
+
+
+
+
+
+
+
+
+CheckedException: Exceptions are checked at compile time
+
+RunTimeExceptions: Exceptions are cursed at runtime
+
+
+above are wrong statements
+
+all exceptions come at runtime
+
+
+Exceptions which are checked by compiler for smooth execution of the programme at runtime 
+
+
+CheckedException: UnreportedException: Must be caught: must use try catch or Throws
+
+
+Exception which are checked by compiler for smooth execution of the programme at runtime , weather the programme handling or not
+
+
+UncheckedException:
+==================
+Arithamatic Exception: Runtime Exception
+
+
+All errors are UncheckedException
+
+
+throw an exception to jvm
+
+Throw: To handover our created Exception object to the jvm manually
+
+Throws: responsiblibilty to handle caller
+
+
+throws only for checked exception
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Serialization
+=============
+The process of Converting objectform to filesupporting form or n/w supported form 
+
+saving state of object to a file 
+
+FOS(Write the binary data to the file)
+OOS(Take object and convert into binary data)
+
+
+Deserilization
+==============
+the process of converting filesupporting form to object form
+
+
+FIS(Read the binary data)
+OIS().readObject()
+
+
+NONSeirilizable exception at runtime if you are not implemented seriliazable interface(java.io)
+
+
+Transient is modifier only applicable for variable
+
+static transiant
+final transiant
+|
+no use
+
+
+
+autoclossable resourses not reasigned
+
+satya sai jewlers
+

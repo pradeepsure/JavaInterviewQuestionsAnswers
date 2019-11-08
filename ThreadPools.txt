@@ -1,0 +1,53 @@
+package org.pradeep.executor;
+
+public class ThreadConsept1
+{
+	public static void main(String[] args)
+	{
+		for(int i=0;i<10;i++) 
+		{
+			Thread t = new Thread(new Task());
+			t.start();
+			System.out.println("Thread Name under main method:-->"+Thread.currentThread().getName());
+		}
+	}
+}
+
+class Task implements Runnable
+{
+	@Override
+	public void run()
+	{
+		System.out.println("Thread Name:-->"+Thread.currentThread().getName());
+	}
+}
+
+each time you create threads 
+
+1 Thread = 1 OS Thread 
+
+1000 tasks asyncronusly if you have 1000 threads
+
+1 java coresponding to 1 os threads
+
+creating a thread is a expencive
+
+a Pool of thread submit 1000 tasks to 10 threads
+
+ThreadPoll is using Blocking queue
+
+ideal poolsize is 
+
+
+Java Provides 4 types of ThreadPools
+====================================
+1)Fixed Thread Pool
+2)Cashed Thread Pool
+3)Scheduled Thread Pool
+4)Single Threaded Executor
+
+
+
+lock
+====
+lock allow you to restrict the access two shared resourse such that only one thread access the shared resourse

@@ -1,0 +1,108 @@
+CoreJava
+=========
+
+OOPS Consepts
+-------------
+1)Abstraction   (Abstraction aims to hide complexity from the users and show them only the relevant information. )
+2)Inheritance   (Inheritance makes it possible to create a child class that inherits the fields and methods of the parent class.)
+3)Polymorphism  (Polymorphismrefers to the ability to perform a certain action in different ways. )
+4)Encapsulation (Encapsulation allows us to protect the data stored in a class from system-wide access.)
+
+
+Association
+-----------
+Association simply means the act of establishing a relationship between two unrelated classes. For example, when you declare two fields of different types (e.g. Car and Bicycle) within the same class and make them interact with each other, you have performed association.
+
+Association in Java:
+
+Two separate classes are associated through their objects.
+The two classes are unrelated, each can exist without the other one.
+Can be a one-to-one, one-to-many, many-to-one, or many-to-many relationship.
+
+Aggregation
+-----------
+Aggregation is a narrower kind of association. It occurs when there’s a one-way (HAS-A) relationship between the two classes you associate through their objects.
+For example, every Passenger has a Car but a Car doesn’t necessarily have a Passenger. When you declare the Passenger class, you can create a field of the Car type that shows which car the passenger belongs to. Then, when you instantiate a new Passenger object, you can access the data stored in the related Car as well.
+
+Aggregation in Java:
+
+One-directional association.
+Represents a HAS-A relationship between two classes.
+Only one class is dependent on the other.
+
+
+Composition
+------------
+Compositionis a stricter form of aggregation. It occurs when the two classes you associate are mutually dependent on each other and can’t exist without each other. For example, take a Car and an Engine class. A Car cannot run without an Engine, while an Engine also can’t function without being built into a Car. This kind of relationship between objects is also called a PART-OF relationship.
+
+Composition in Java:
+
+A restricted form of aggregation
+Represents a PART-OF relationship between two classes
+Both classes are dependent on each other
+If one class ceases to exist, the other can’t survive alone
+
+
+
+
+Diff b/w Abstraction and Encapsulation
+Diff b/w Abstract class and interface
+
+Polymorphism Types
+
+MethodOverLoading
+MethodOverRiding
+
+
+hashCode and equals method implementation?
+
+
+Generics
+==========
+
+
+
+Exceptions
+==========
+CustomExceptions
+
+diff b/w error and exception
+
+
+
+Threads
+=======
+How many ways to create a Threads
+
+Executors
+=========
+
+
+
+
+Collections
+===========
+Diff b/w ArrayList and LinkedList?
+Diff b/w ArrayList and Vector?
+
+
+
+What is HashMap?
+Explain internal implementation of HashMap?
+
+
+what is diff b/w HashMap and Concurent HashMap?
+
+Explain internal implementation of HashSet?
+
+
+
+
+
+Sereialization
+==============
+
+
+
+What is Serializable interface?
+
