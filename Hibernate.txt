@@ -66,3 +66,8 @@ Hibernate merge
 ===============
 can be used to update existing values, however this method create a copy from the passed entity object and return it. 
 The returned object is part of persistent context and tracked for any changes, passed object is not tracked. 
+
+
+LazyLoading
+===========
+"Lazy loading" means that an entity will be loaded only when you actually accesses the entity for the first time.

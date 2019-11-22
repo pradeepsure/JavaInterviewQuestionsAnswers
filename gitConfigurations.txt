@@ -1,0 +1,27 @@
+git config --global http.proxy http://746983:May@2019@proxy.cognizant.com:6050
+
+git config --global https.proxy https://746983:May@2019@proxy.cognizant.com:6050
+
+
+git config --global https.proxy http://svnspradeepkumar@gmail.com:Svns@496@10.226.33.109:6050
+
+
+$ git push -u origin master
+ssh: connect to host github.com port 22: Connection refused
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+
+[http]
+	sslBackend = openssl
+	proxy = http://svnspradeepkumar@gmail.com:@10.226.33.109:6050
+	sslVerify = false
+	sshVerify = false
+[https]
+	proxy = https://746983:May@2019@proxy.cognizant.com:6050
+
+
+git commit -m "empty commit" --allow-empty
+

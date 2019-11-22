@@ -1,0 +1,51 @@
+Add Hystrix starter and dashboard dependencies.
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-hystrix</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+</dependency>
+Add @EnableCircuitBreaker annotation
+Add @EnableHystrixDashboard annotation
+Add annotation @HystrixCommand(fallbackMethod = "myFallbackMethod")
+
+
+@HystrixCommand(ignoreExceptions = {VallidationException.class}, fallbackMethod="getUserEmailsFallback")
+List<String> getUserEmails(String userId) {
+  return callFirstService(userId);
+}
+
+@HystrixCommand(ignoreExceptions = {VallidationException.class})
+List<String> getUserEmailsFallback(String userId) {
+  return callSecondService(userId);
+}
+
+
+@HystrixCommand(fallbackMethod = "callStudentServiceAndGetData_Fallback")
+    public String callStudentServiceAndGetData(String schoolname) {
+ 
+        System.out.println("Getting School details for " + schoolname);
+ 
+        String response = restTemplate
+                .exchange("http://localhost:8098/getStudentDetailsForSchool/{schoolname}"
+                , HttpMethod.GET
+                , null
+                , new ParameterizedTypeReference<String>() {
+            }, schoolname).getBody();
+ 
+        System.out.println("Response Received as " + response + " -  " + new Date());
+ 
+        return "NORMAL FLOW !!! - School Name -  " + schoolname + " :::  " +
+                    " Student Details " + response + " -  " + new Date();
+    }
+     
+    @SuppressWarnings("unused")
+    private String callStudentServiceAndGetData_Fallback(String schoolname) {
+ 
+        System.out.println("Student Service is down!!! fallback route enabled...");
+ 
+        return "CIRCUIT BREAKER ENABLED!!! No Response From Student Service at this moment. " +
+                    " Service will be back shortly - " + new Date();
+    }

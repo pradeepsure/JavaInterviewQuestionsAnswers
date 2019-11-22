@@ -9,6 +9,15 @@ OOPS Consepts
 4)Encapsulation (Encapsulation allows us to protect the data stored in a class from system-wide access.)
 
 
+Overriding Rules
+==================
+Methods declared public in a superclass also must be public in all subclasses.
+Methods declared protected in a superclass must either be protected or public in subclasses; they cannot be private.
+Methods declared private are not inherited at all, so there is no rule for them.
+
+
+
+
 Association
 -----------
 Association simply means the act of establishing a relationship between two unrelated classes. For example, when you declare two fields of different types (e.g. Car and Bicycle) within the same class and make them interact with each other, you have performed association.
@@ -77,7 +86,7 @@ How many ways to create a Threads
 Executors
 =========
 
-
+http://bit.ly/ceposta-hardest-part
 
 
 Collections
@@ -105,4 +114,6 @@ Sereialization
 
 
 What is Serializable interface?
+
+
 

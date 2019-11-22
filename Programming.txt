@@ -1,0 +1,177 @@
+PL(Programming Language)            SL(Scripting Language) 				QL(Query Language)				ML(Markup Language)
+10.226.33.109
+\\pc281055
+\\10.226.33.25 
+q1v40yji
+
+PL(Programming Language)(Compile and Execute) 
+========================
+POP(Procedure oriented Programming not applicable in Agile methodology) and OOP (Bottom Approach)
+
+in OOP Loosely coupled 
+can you use only for Back-end 
+
+
+SL(Scripting Language) => it won't compile
+============================================
+Provide some logic here
+Use FrontEnd and back-end 
+
+QL(Query Language)
+==================
+interact with database
+
+ML(Markup Language) (HTML, XML)
+===============================
+What do you want to display
+
+FSD need all the above languages
+
+
+Node js is a run time environment only for javaScript
+
+npm install on top of node js 
+
+front-end Angular/React is totally loosely coupled (any back-end it supports) 
+Angular(browsers Module(browsers) and Commons module(Desktop))/React(React-Native) technology independent which can be used for all three applications(common UI for all back-end)
+
+App based, web based, desktop based
+
+
+
+
+
+
+
+
+{(((this.satate.power==='ON')&&(this.state.wires==='ON')&&(this.state.cycling==='ON')&&(this.state.connections==='ON')&&(this.state.outages==='ON'))?'YOU NEED to Call 8904128500 ':'your problem solved')}
+
+
+
+The JavaScript engine, by default, moves declarations to the top. This feature is termed as hoisting. This feature applies to variables and functions. 
+Hoisting allows JavaScript to use a component before it has been declared. However, 
+the concept of hoisting does not apply to scripts that are run in the Strict Mode.
+
+
+
+new gas connection online payment done
+what is the next procedure
+will deliver to home
+3190824000001558
+dob: 17/06/1992
+
+
+pugaplkk
+
+telstrat
+
+telstrabuddy@gmail.com
+
+
+https://www.udemy.com/deploy-java-spring-boot-to-aws-amazon-web-service/?couponCode=FIRST_PROMO_UDEMY 
+
+
+
+https://265440163770.signin.aws.amazon.com/console
+pradeep_dev
+ Environment ID: e-bpvdnphvtp, URL: rest-api-svns-dev.bk8mpmmday.us-east-1.elasticbeanstalk.com 
+CLOUD -> ON-DEMAND RESOURCE PROVISINING  AZURE,GC
+
+WHY Elastic BeanStalk -> quickly deploy web applicataions
+
+With Elastic Beanstalk, you can deploy, monitor, and scale an application quickly and easily. Let us do the heavy lifting so you can focus on your business.
+
+to deploy any application you need environments
+
+Web application or Batch Application
+
+
+regions
+performance
+availability
+
+
+ec2 is web service to obtain virtual services in cloud
+
+elastic ip is static 
+
+
+Application versions
+
+
+HI Pradeep and Kundan
+I have shared your profile for one of the backend position in CAT application. Expecting client interview by early next week. So pls prepare for your interview primarily on the backend. 
+
+Some of the interview questions :
+
+Design spec using open API 
+Async communication between Micro services using Rabbit MQ
+Deployable artefacts of micro services 
+Circuit breakers or Hystrix in micro services
+
+(Hystrix is a mature implementation of the Circuit Breaker pattern, 
+with finely-tunable configuration and great visualization and monitoring support. 
+The Spring Cloud Netflix / Javanica libraries offer an annotation-driven alternative to the direct Hystrix API which is less intrusive on the codebase.)
+
+CI CD pipelines using cucumber or Bamboo
+
+
+under services pipeline
+CI is basically the process where commit code into your repository it will build and run successfull
+CD not only the build also will deployed into your environement
+
+buildspec.yml
+
+
+
+
+s3 simple storage service
+
+Dockerrun.aws.json
+
+
+
+Input artifact
+BuildArtifact
+ApplicationName
+rest-api-svns
+EnvironmentName
+rest-api-svns-dev
+
+
+git config --global http.proxy http://746983:May@2019@proxy.cognizant.com:6050
+
+git config --global https.proxy https://746983:May@2019@proxy.cognizant.com:6050
+
+
+git config --global https.proxy http://svnspradeepkumar@gmail.com:Svns@496@10.226.33.109:6050
+
+
+$ git push -u origin master
+ssh: connect to host github.com port 22: Connection refused
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+
+[http]
+	sslBackend = openssl
+	proxy = http://svnspradeepkumar@gmail.com:@10.226.33.109:6050
+	sslVerify = false
+	sshVerify = false
+[https]
+	proxy = https://746983:May@2019@proxy.cognizant.com:6050
+
+	
+	
+	
+	[http]
+	proxy = http://svnspradeepkumar@gmail.com:Svns1962@10.226.33.109:6050
+	sslVerify = false
+[https]
+	proxy = http://svnspradeepkumar@gmail.com:Svns1962@10.226.33.109:6050
+	sslVerify = false
+[user]
+	name = pradeepsure
+	email = svnspradeepkumar@gmail.com
