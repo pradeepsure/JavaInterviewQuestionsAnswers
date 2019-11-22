@@ -4,6 +4,18 @@ PL(Programming Language)            SL(Scripting Language) 				QL(Query Language
 \\10.226.33.25 
 q1v40yji
 
+
+AWS
+=======
+https://us-east-1.signin.aws.amazon.com/oauth?response_type=code&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&forceMobileLayout=0&forceMobileApp=0
+
+
+========
+265440163770
+pradeep_dev
+===========
+================
+
 PL(Programming Language)(Compile and Execute) 
 ========================
 POP(Procedure oriented Programming not applicable in Agile methodology) and OOP (Bottom Approach)
