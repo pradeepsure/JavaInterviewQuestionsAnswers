@@ -1,0 +1,26 @@
+1. what is docker?
+2. what is difference between vm's and docker ?
+3. what is dockerfile?
+4. what is difference between the kill and stop?
+5. what is difference between and Add and copy commands in a docokerfile?
+6. what is difference between cmd and entrypoint ?
+7. which is the base image you will prefer your docker file ? alpine
+8. how login a running container ? docker exec -it contianerid
+9. how to check live logs in docker containers? docker logs --follow
+10. how to check no.of containers running your machine ? docker ps
+11. how to check stop and running containers ? docker ps -a
+12. what is port forwarding? -p 8181:9090
+13. How to run a container in background? -d
+14. what is first line in a dockerfile? FROM 
+14. what are the commands have you used in your docker file ? FROM RUN CMD ENTRYPOINT label workdir COPY ADD EXPOSE VOLUME 
+15. what is label in docker?
+16. what is docker tag?
+17. How you store data persistently? volumes
+18. have you worked on docker volumes? -v hostmachie/path:container/data/path
+19. what is docker network ?
+20. I have a one web application is running on one container and database is running in one container how you communicate these two containers?
+21. where you are store docker images?  registry2 |jforg |dockerhub
+22. how to run multiple containers at a time?  docker-compose 
+23. how to share data between two containers?
+container 1 
+  docker run --volumes-from container1 --name container2
